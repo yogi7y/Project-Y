@@ -64,7 +64,3 @@ class MyCustomStore implements KeyValueStore {
 ## Available Implementations
 
 - **[persistence_y_shared_preferences](../persistence_y_shared_preferences)**: Key-value storage using Flutter's SharedPreferences
-
-## License
-
-See the [LICENSE](../../LICENSE) file for license rights and limitations.

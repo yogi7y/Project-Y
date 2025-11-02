@@ -141,7 +141,3 @@ await store.clear(); // Removes everything
 
 - [persistence_y](../persistence_y): The abstract persistence API
 - [shared_preferences](https://pub.dev/packages/shared_preferences): The underlying SharedPreferences package
-
-## License
-
-See the [LICENSE](../../LICENSE) file for license rights and limitations.
