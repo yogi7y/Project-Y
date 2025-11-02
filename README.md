@@ -7,6 +7,8 @@ A mono repo of tools to help quick start a project by having basic setup already
 | Package | Description |
 |---------|-------------|
 | [network_y](packages/network) | A flexible networking abstraction that supports pluggable HTTP clients, enabling clean separation between your app and its network implementation.
+| [persistence_y](packages/persistence_y) | Type-safe abstractions for local data persistence, providing interfaces for key-value stores and future database implementations. |
+| [persistence_y_shared_preferences](packages/persistence_y_shared_preferences) | Key-value storage implementation using Flutter's SharedPreferences. |
 | [core_y](packages/core) | Collection of essential utilities, common types, and extensions designed to standardize core functionality across projects. |
 | [lints_y](packages/lints) | Curated set of lint rules to maintain code quality and consistency. |
 
