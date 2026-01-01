@@ -177,6 +177,33 @@ void main() {
 
         expect(request.url, 'https://api.example.com/search?q=flutter%26dart&filter=year%3E2020');
       });
+
+      test('preserves path from baseUrl when combining with endpoint', () {
+        final request = TestRequest(
+          baseUrl: 'https://api.example.com/v1',
+          endpoint: '/users',
+        );
+
+        expect(request.url, 'https://api.example.com/v1/users');
+      });
+
+      test('preserves nested path from baseUrl when combining with endpoint', () {
+        final request = TestRequest(
+          baseUrl: 'https://api.example.com/functions/v1',
+          endpoint: '/extract-metadata',
+        );
+
+        expect(request.url, 'https://api.example.com/functions/v1/extract-metadata');
+      });
+
+      test('handles baseUrl with path and trailing slash', () {
+        final request = TestRequest(
+          baseUrl: 'https://api.example.com/v1/',
+          endpoint: '/users',
+        );
+
+        expect(request.url, 'https://api.example.com/v1/users');
+      });
     });
   });
 

@@ -35,13 +35,21 @@ abstract class Request {
   /// Timeout duration for the request
   final Duration timeout;
 
-  /// Computed full URL including base URL, endpoint, and query parameters
-  String get url => Uri.parse(baseUrl)
-      .replace(
-        path: endpoint,
-        queryParameters: queryParameters.isNotEmpty ? queryParameters : null,
-      )
-      .toString();
+  /// Computed full URL including base URL, endpoint, and query parameters.
+  /// Combines the path from baseUrl with the endpoint.
+  String get url {
+    final uri = Uri.parse(baseUrl);
+    final basePath = uri.path.endsWith('/') ? uri.path.substring(0, uri.path.length - 1) : uri.path;
+    final endpointPath = endpoint.startsWith('/') ? endpoint : '/$endpoint';
+    final combinedPath = '$basePath$endpointPath';
+
+    return uri
+        .replace(
+          path: combinedPath,
+          queryParameters: queryParameters.isNotEmpty ? queryParameters : null,
+        )
+        .toString();
+  }
 }
 
 abstract class GetRequest implements Request {}
